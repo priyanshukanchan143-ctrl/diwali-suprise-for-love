@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Kanchan ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:radial-gradient(circle,#54204e,#170b2c 75%);
+ color:white;
+ font-family:Georgia,serif;
+ text-align:center;
+ overflow:hidden;
+}
+.screen{
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+ position:relative;
+ overflow:hidden;
+}
+.stars{
+ position:absolute;
+ inset:0;
+ background-image:
+ radial-gradient(2px 2px at 20% 30%,white,transparent),
+ radial-gradient(2px 2px at 80% 20%,gold,transparent),
+ radial-gradient(2px 2px at 40% 80%,white,transparent),
+ radial-gradient(2px 2px at 70% 60%,pink,transparent);
+ background-size:150px 150px;
+ animation:stars 5s linear infinite;
+}
+@keyframes stars{
+ from{transform:translateY(0)}
+ to{transform:translateY(-150px)}
+}
+.content{
+ position:relative;
+ z-index:3;
+ animation:appear 2s ease;
+}
+@keyframes appear{
+ from{opacity:0;transform:translateY(40px) scale(.8)}
+ to{opacity:1;transform:translateY(0) scale(1)}
+}
+.diya{
+ font-size:65px;
+ animation:flicker 1s infinite alternate;
+ filter:drop-shadow(0 0 15px orange);
+}
+@keyframes flicker{
+ from{transform:scale(1);filter:drop-shadow(0 0 8px orange)}
+ to{transform:scale(1.12);filter:drop-shadow(0 0 30px gold)}
+}
+h1{
+ font-size:clamp(38px,10vw,58px);
+ color:#ffe0a0;
+ text-shadow:0 0 15px #ffac36,0 0 35px #ff8a36;
+ animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+ to{text-shadow:0 0 30px gold,0 0 55px orange}
+}
+p{line-height:1.9;font-size:17px}
+button{
+ border:1px solid gold;
+ border-radius:40px;
+ padding:16px 28px;
+ font-size:17px;
+ font-weight:bold;
+ color:#48162f;
+ background:linear-gradient(45deg,#ffbd50,#fff0ae);
+ box-shadow:0 0 25px #ffba4a88;
+ animation:pulse 1.5s infinite;
+ cursor:pointer;
+}
+@keyframes pulse{
+ 50%{transform:scale(1.07)}
+}
+.heart{
+ position:absolute;
+ bottom:-50px;
+ font-size:25px;
+ animation:float 7s linear forwards;
+ pointer-events:none;
+ z-index:2;
+}
+@keyframes float{
+ to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+#next{
+ display:none;
+ animation:appear 1s ease;
+}
+</style>
+</head>
+
+<body>
+
+<div class="screen">
+<div class="stars"></div>
+
+<div class="content" id="welcome">
+
+<div class="diya">🪔</div>
+
+<p style="color:#ffc9df;letter-spacing:4px">
+A SPECIAL SURPRISE FOR YOU
+</p>
+
+<h1>Happy Diwali<br>Kanchan ❤️</h1>
+
+<p>
+Tonight is full of lights... ✨<br>
+But my favourite light is your smile. 🥹
+</p>
+
+<p>Someone has made something special for you...</p>
+
+<button onclick="openSurprise()">
+Open Your Surprise 💌
+</button>
+
+<p style="font-size:13px;color:#ffcfdf">
+Made with lots of love ❤️
+</p>
+</div>
+
+<div class="content" id="next">
+<div class="diya">💖</div>
+<h1>Hey Beautiful!</h1>
+<p>
+You are not just a part of my story...<br>
+You are my favourite chapter. ❤️
+</p>
+<h2 style="color:#ffdc91">
+Ready for more surprises? 🥰
+</h2>
+<button onclick="alert('I Love You Kanchan ❤️')">
+Yes! Show Me More 🎁
+</button>
+</div>
+
+</div>
+
+<script>
+function openSurprise(){
+ document.getElementById("welcome").style.display="none";
+ document.getElementById("next").style.display="block";
+}
+
+const emojis=["❤️","💖","💕","✨","🌸","🪔"];
+
+setInterval(()=>{
+ const h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+ h.style.left=Math.random()*100+"vw";
+ h.style.animationDuration=(4+Math.random()*5)+"s";
+ document.querySelector(".screen").appendChild(h);
+ setTimeout(()=>h.remove(),9000);
+},400);
+</script>
+
+</body>
+</html>
